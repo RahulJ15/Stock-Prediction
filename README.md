@@ -1,6 +1,3 @@
-Sure, here's a template for your README file on GitHub:
-
----
 
 # Stock Market Analysis and Prediction App
 
