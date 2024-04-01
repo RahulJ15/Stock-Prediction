@@ -1,60 +1,49 @@
+Certainly! Here's the updated README file with a section for features:
 
-# Stock Market Analysis and Prediction App
+---
 
-## Overview
+# Stock Trend Prediction with LSTM
 
-This project is an application built for stock market analysis and prediction using Long Short-Term Memory (LSTM) neural networks. It utilizes the yfinance library to fetch historical stock data and Streamlit for creating an interactive web application with visualizations.
+This project utilizes Long Short-Term Memory (LSTM) networks to predict the future trend of stock prices. It employs historical stock price data obtained from Yahoo Finance and TensorFlow for building the LSTM model. The user interface is developed using Streamlit, allowing users to select a specific stock, choose a date range, visualize historical data, and view future price predictions.
 
-## Features
+## Getting Started
 
-- **Stock Data Retrieval:** Utilizes the yfinance library to fetch historical stock data for analysis.
-- **LSTM Model:** Employs Long Short-Term Memory (LSTM) neural networks for stock market prediction.
-- **Interactive Visualization:** Built using Streamlit, enabling users to explore and visualize stock market data dynamically.
+To get started with this project, ensure you have the necessary dependencies installed. You can install them using pip:
 
-## Installation
+```bash
+pip install pandas numpy plotly yfinance tensorflow streamlit
+```
 
-1. Clone the repository:
+Additionally, ensure you have a trained LSTM model (saved as `LSTM_model.h5`) in the project directory.
 
-    ```bash
-    git clone https://github.com/your-username/stock-analysis-app.git
-    ```
+## Running the Application
 
-2. Navigate to the project directory:
+You can run the application locally by executing the following command:
 
-    ```bash
-    cd stock-analysis-app
-    ```
+```bash
+streamlit run app.py
+```
 
-3. Install the required dependencies:
-
-    ```bash
-    pip install -r requirements.txt
-    ```
+This command will start a local server, and you can access the application in your web browser by visiting `http://localhost:8501`.
 
 ## Usage
 
-1. Run the Streamlit app:
+1. **Date Selection**: Select the start and end dates for the historical stock price data.
+2. **Enter Stock Ticker**: Input the ticker symbol of the desired stock (e.g., AAPL for Apple Inc.).
+3. **Visualize Data**: View descriptive statistics of the selected stock's closing prices and visualize them using interactive charts.
+4. **Model Prediction**: See the predicted prices for the next 7 days based on the LSTM model.
 
-    ```bash
-    streamlit run app.py
-    ```
+## Features
 
-2. Open a web browser and go to `http://localhost:8501` to access the application.
+- **Data Visualization**: Visualize historical stock price data using interactive charts.
+- **Predictive Analysis**: Utilize LSTM model to predict future stock prices.
+- **User-friendly Interface**: Streamlit-based UI for easy interaction and visualization.
+- **Descriptive Statistics**: View descriptive statistics of stock prices within the selected date range.
+- **Dynamic Moving Average**: Overlay closing price chart with a dynamic moving average.
+- **Future Price Prediction**: Display predicted prices for the next 7 days.
 
-3. Use the interactive controls to select the stock, specify analysis parameters, and visualize the results.
-
-## Contributing
-
-Contributions are welcome! If you find any bugs or have suggestions for improvements, feel free to open an issue or submit a pull request.
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-## Acknowledgments
-
-- [Streamlit](https://streamlit.io/) for providing a simple way to create interactive web applications with Python.
-- [yfinance](https://github.com/ranaroussi/yfinance) for providing an easy-to-use API for fetching stock market data.
-- [TensorFlow](https://www.tensorflow.org/) for providing the tools necessary to build and train LSTM neural networks.
-
----
