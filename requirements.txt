@@ -1,0 +1,8 @@
+pandas
+numpy
+plotly
+yfinance
+tensorflow
+streamlit
+newsapi-python
+datetime
