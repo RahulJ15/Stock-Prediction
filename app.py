@@ -3,20 +3,42 @@ import numpy as np
 import plotly.express as px
 import plotly.graph_objects as go
 import yfinance as yf
-import tensorflow as tf
 import streamlit as st
 from datetime import datetime, timedelta
+from newsapi import NewsApiClient
+import tensorflow as tf
 
 st.title('Stock Trend Prediction')
 
+
+# Function to fetch current news related to the stock
+def get_stock_news(ticker, num_articles=5):
+    try:
+        newsapi = NewsApiClient(api_key='c68de8478ece4a258c4823f31671fe11')  # Replace 'YOUR_NEWS_API_KEY' with your actual API key
+        top_headlines = newsapi.get_everything(q=ticker, language='en', sort_by='publishedAt')
+        articles = top_headlines['articles'][:num_articles]
+        return articles
+    except:
+        return None
+
 # Date Selection
-start_date = st.date_input("Select Start Date", pd.to_datetime('2023-01-01'))
+start_date = st.date_input("Select Start Date", pd.to_datetime('2019-01-01'))
 end_date = st.date_input("Select End Date", pd.to_datetime('2024-01-01'))
 
 start = start_date.strftime('%Y-%m-%d')
 end = end_date.strftime('%Y-%m-%d')
 
-user_input = st.text_input("Enter Stock Ticker", 'AAPL')
+user_input = st.text_input("Enter Stock Ticker", 'AAPL').upper()
+
+
+# Display current news related to the stock in the sidebar
+st.sidebar.title('Current News')
+articles = get_stock_news(user_input, num_articles=5)
+if articles:
+    for article in articles:
+        st.sidebar.write(f"- [{article['title']}]({article['url']})")
+else:
+    st.sidebar.write("Failed to retrieve current news. Please try again later.")
 
 # Download data from Yahoo Finance
 df = yf.download(user_input, start=start, end=end)
@@ -128,7 +150,3 @@ st.write("This chart compares the true closing prices of the stock with the pred
 st.subheader('Next 7 Days Predicted Prices')
 st.table(future_df)
 st.write("This table displays the predicted prices for the next 7 days based on the LSTM model. Please note that these predictions include some randomness to account for market volatility.")
-
-
-
-
