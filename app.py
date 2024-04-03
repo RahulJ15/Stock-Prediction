@@ -87,7 +87,9 @@ if len(data_testing.columns) == 0:
 data_training_array = scaler.fit_transform(data_training)
 
 # Loading model
-model = tf.keras.models.load_model("LSTM_model.h5")
+custom_objects = {'OrthogonalInitializer': tf.keras.initializers.Orthogonal}
+model = tf.keras.models.load_model("LSTM_model.h5", custom_objects=custom_objects)
+
 
 past_100_days = data_training.tail(100)
 final_df = pd.concat([past_100_days, data_testing], ignore_index=True)
