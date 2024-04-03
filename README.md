@@ -1,6 +1,3 @@
-Certainly! Here's the updated README file with a section for features:
-
----
 
 # Stock Trend Prediction with LSTM
 
@@ -32,6 +29,7 @@ This command will start a local server, and you can access the application in yo
 2. **Enter Stock Ticker**: Input the ticker symbol of the desired stock (e.g., AAPL for Apple Inc.).
 3. **Visualize Data**: View descriptive statistics of the selected stock's closing prices and visualize them using interactive charts.
 4. **Model Prediction**: See the predicted prices for the next 7 days based on the LSTM model.
+5. **Stay Informed**: Get access to the latest news related to the selected stock, providing valuable insights for informed decision-making.
 
 ## Features
 
@@ -41,6 +39,7 @@ This command will start a local server, and you can access the application in yo
 - **Descriptive Statistics**: View descriptive statistics of stock prices within the selected date range.
 - **Dynamic Moving Average**: Overlay closing price chart with a dynamic moving average.
 - **Future Price Prediction**: Display predicted prices for the next 7 days.
+- **Current News Integration**: Fetch and display current news related to the selected stock using the NewsAPI, offering users up-to-date information for better decision-making.
 
 
 ## License
