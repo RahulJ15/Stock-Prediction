@@ -6,3 +6,4 @@ tensorflow
 streamlit
 newsapi-python
 datetime
+scikit-learn
